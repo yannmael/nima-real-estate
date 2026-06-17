@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+    /* Couleurs de marque NIMA */
+    --color-primary:     #1A3C5E;
+    --color-primary-800: #12293f;
+    --color-primary-700: #163350;
+    --color-primary-100: #eaf0f6;
+    --color-gold:        #C9A96E;
+    --color-gold-600:    #b08c3a;
+
+    /* Typographie */
+    --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                 'Segoe UI', Roboto, sans-serif;
+
+    /* Breakpoints — alignés sur les 5 cibles CLAUDE.md (360/768/1024/1440/1920) */
+    --breakpoint-sm: 640px;   /* mobile large */
+    --breakpoint-md: 768px;   /* tablette */
+    --breakpoint-lg: 1024px;  /* desktop */
+    --breakpoint-xl: 1440px;  /* grand écran */
+    --breakpoint-2xl: 1920px; /* très grand écran */
+}
+
+/* Focus visible — accessibilité clavier (WCAG 2.1 AA) */
+*:focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Alpine.js — masque les éléments x-cloak avant hydratation */
+[x-cloak] { display: none !important; }
+
+/* Hero — motif grille architectural (blueprint) */
+.hero-pattern {
+    background-color: var(--color-primary-800);
+    background-image:
+        linear-gradient(rgba(201, 169, 110, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201, 169, 110, 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+}
+
+/* Image placeholder — motif hachuré diagonal */
+.placeholder-hatch {
+    background-image: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 8px,
+        rgba(26, 60, 94, 0.06) 8px,
+        rgba(26, 60, 94, 0.06) 9px
+    );
+}
