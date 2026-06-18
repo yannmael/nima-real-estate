@@ -13,7 +13,7 @@
     "description": "{{ __('home.meta_description') }}",
     "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Douala",
+        "addressLocality": "Yaoundé",
         "addressCountry": "CM"
     }
 }
@@ -37,7 +37,8 @@
 
         <div class="mb-14">
             <x-ui.section-heading
-                :badge="__('home.univers_titre')"
+                id="univers-heading"
+                :badge="__('home.univers_badge')"
                 :sub="__('home.univers_sous_titre')"
                 center>
                 {{ __('home.univers_titre') }}
@@ -83,6 +84,7 @@
 
         <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
             <x-ui.section-heading
+                id="entites-heading"
                 :badge="__('home.entites_badge')"
                 :sub="__('home.entites_sous_titre')">
                 {{ __('home.entites_titre') }}
@@ -114,6 +116,7 @@
 
         <div class="text-center mb-14">
             <x-ui.section-heading
+                id="stats-heading"
                 :badge="__('home.stats_badge')"
                 :sub="__('home.stats_sous_titre')"
                 center
@@ -155,6 +158,7 @@
 
         <div class="mb-12">
             <x-ui.section-heading
+                id="partenaires-heading"
                 :badge="__('home.partenaires_badge')"
                 :sub="__('home.partenaires_sous_titre')"
                 center>

@@ -16,6 +16,7 @@ return [
     'hero_img_alt'     => '[PLACEHOLDER — Description de l\'image hero : photo d\'un projet phare du groupe]',
 
     /* Univers */
+    'univers_badge'      => 'Nos univers',
     'univers_titre'      => 'Nos domaines d\'expertise',
     'univers_sous_titre' => 'Trois domaines d\'expertise, une même exigence de qualité.',
     'univers_residentiel_titre' => 'Résidentiel',

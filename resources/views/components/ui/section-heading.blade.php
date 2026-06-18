@@ -4,6 +4,7 @@
     'light'   => false,
     'tag'     => 'h2',
     'sub'     => null,
+    'id'      => null,
 ])
 
 @php
@@ -27,11 +28,11 @@
     @endif
 
     @if($tag === 'h1')
-        <h1 class="{{ $titleClass }}">{{ $slot }}</h1>
+        <h1 @if($id) id="{{ $id }}" @endif class="{{ $titleClass }}">{{ $slot }}</h1>
     @elseif($tag === 'h3')
-        <h3 class="{{ $titleClass }}">{{ $slot }}</h3>
+        <h3 @if($id) id="{{ $id }}" @endif class="{{ $titleClass }}">{{ $slot }}</h3>
     @else
-        <h2 class="{{ $titleClass }}">{{ $slot }}</h2>
+        <h2 @if($id) id="{{ $id }}" @endif class="{{ $titleClass }}">{{ $slot }}</h2>
     @endif
 
     @if($sub)

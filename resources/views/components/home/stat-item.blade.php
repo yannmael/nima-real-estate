@@ -13,7 +13,7 @@
 
 <div class="text-center">
     <p class="text-4xl xl:text-5xl font-bold {{ $valColor }} leading-none tabular-nums">
-        {{ $valeur }}<span class="text-2xl {{ $uniteColor }}">{{ $unite }}</span>
+        <span data-countup="{{ $valeur }}">{{ $valeur }}</span><span class="text-2xl {{ $uniteColor }}">{{ $unite }}</span>
     </p>
     <p class="mt-2 text-sm font-medium {{ $labelColor }} uppercase tracking-wide">
         {{ $label }}

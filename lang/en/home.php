@@ -16,6 +16,7 @@ return [
     'hero_img_alt'     => '[PLACEHOLDER — Hero image description: photo of a flagship project]',
 
     /* Univers */
+    'univers_badge'      => 'Our areas',
     'univers_titre'      => 'Our areas of expertise',
     'univers_sous_titre' => 'Three areas of expertise, one shared standard of quality.',
 
@@ -42,14 +43,14 @@ return [
     'stats_titre'      => 'Numbers that speak for themselves',
     'stats_sous_titre' => 'Proven expertise in architecture, construction and management, brought together for your projects.',
 
-    'stats_projets_val'     => '15',
+    'stats_projets_val'     => '21',
     'stats_projets_label'   => 'Completed projects',
 
-    'stats_surface_val'     => '5,000',
+    'stats_surface_val'     => '6,270',
     'stats_surface_label'   => 'sq m delivered',
     'stats_surface_unite'   => 'm²',
 
-    'stats_experience_val'  => '2',
+    'stats_experience_val'  => '5',
     'stats_experience_label'=> 'Years of experience',
 
     'stats_clients_val'     => '20',

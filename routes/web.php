@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EntiteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
@@ -32,7 +33,7 @@ Route::prefix('{locale}')
 
         // Pages à implémenter aux étapes suivantes (retournent 404 pour l'instant)
         // Étape 5 — Entités
-        Route::get('/entites/{slug}', fn () => abort(404))->name('entite');
+        Route::get('/entites/{slug}', [EntiteController::class, 'show'])->name('entite');
 
         // Étape 6 — Portfolio
         Route::get('/portfolio', fn () => abort(404))->name('portfolio');
