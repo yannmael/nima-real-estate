@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             ArticleSeeder::class,
             LeadSeeder::class,
             TemoignageSeeder::class,
+            TauxChangeSeeder::class,
         ]);
     }
 }

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\EntiteController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\ServicesController;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
 
@@ -36,11 +38,12 @@ Route::prefix('{locale}')
         Route::get('/entites/{slug}', [EntiteController::class, 'show'])->name('entite');
 
         // Étape 6 — Portfolio
-        Route::get('/portfolio', fn () => abort(404))->name('portfolio');
-        Route::get('/portfolio/{slug}', fn () => abort(404))->name('projet');
+        Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
+        Route::get('/portfolio/{slug}', [PortfolioController::class, 'show'])->name('projet');
 
-        // Étape 7 — Services
-        Route::get('/services', fn () => abort(404))->name('services');
+        // Étape 7 — Services & Processus
+        Route::get('/services',   [ServicesController::class, 'index'])->name('services');
+        Route::get('/processus',  [ServicesController::class, 'processus'])->name('processus');
 
         // Étape 8 — Contact
         Route::get('/contact', fn () => abort(404))->name('contact');
