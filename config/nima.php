@@ -29,4 +29,16 @@ return [
         'zoom' => env('MAP_ZOOM', 14),
     ],
 
+    'legal' => [
+        'raison_sociale'    => env('LEGAL_RAISON_SOCIALE',    '[À COMPLÉTER — Raison sociale]'),
+        'forme_juridique'   => env('LEGAL_FORME_JURIDIQUE',   '[À COMPLÉTER — Forme juridique]'),
+        'capital'           => env('LEGAL_CAPITAL',           '[À COMPLÉTER — Capital en FCFA]'),
+        'rccm'              => env('LEGAL_RCCM',              '[À COMPLÉTER — Numéro RCCM]'),
+        'siege'             => env('LEGAL_SIEGE',             '[À COMPLÉTER — Adresse du siège]'),
+        'dirigeant'         => env('LEGAL_DIRIGEANT',         '[À COMPLÉTER — Nom du dirigeant]'),
+        'qualite_dirigeant' => env('LEGAL_QUALITE_DIRIGEANT', '[À COMPLÉTER — Qualité du dirigeant]'),
+        'email_rgpd'        => env('LEGAL_EMAIL_RGPD',        '[À COMPLÉTER — E-mail RGPD]'),
+        'date_maj'          => '25 juin 2026',
+    ],
+
 ];

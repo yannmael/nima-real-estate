@@ -53,10 +53,25 @@ return [
     'whatsapp_aria'   => 'Contacter NIMA Real Estate sur WhatsApp',
     'whatsapp_label'  => 'WhatsApp',
 
-    /* Bandeau cookies — placeholder (étape 11) */
-    'cookie_text'   => 'Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic (Google Analytics).',
-    'cookie_accept' => 'Accepter',
-    'cookie_refuse' => 'Refuser',
-    'cookie_more'   => 'En savoir plus',
+    /* Bandeau cookies — consentement granulaire (étape 11) */
+    'cookie_titre'   => 'Gestion des cookies',
+    'cookie_texte'   => 'Nous utilisons des cookies analytiques (Google Analytics 4) et fonctionnels (carte interactive) uniquement avec votre accord. Aucun cookie non essentiel n\'est déposé sans votre consentement.',
+    'cookie_plus'    => 'Politique de confidentialité',
+    'cookie_paramétrer' => 'Paramétrer',
+    'cookie_refuser'    => 'Tout refuser',
+    'cookie_accepter'   => 'Tout accepter',
+    'cookie_enregistrer' => 'Enregistrer mes choix',
+    'cookie_retour'      => 'Retour',
+
+    /* Panneau de personnalisation */
+    'cookie_prefs_titre' => 'Personnaliser mes choix',
+    'cookie_prefs_intro' => 'Choisissez les catégories de cookies que vous acceptez. Vous pouvez modifier vos préférences à tout moment.',
+    'cookie_toujours_actif'       => 'Toujours actif',
+    'cookie_cat_necessaires'      => 'Nécessaires',
+    'cookie_cat_necessaires_desc' => 'Indispensables au fonctionnement du site (protection CSRF, session). Ces cookies ne peuvent pas être désactivés.',
+    'cookie_cat_analytics'        => 'Analytiques — Google Analytics 4',
+    'cookie_cat_analytics_desc'   => 'Mesurent l\'audience du site de façon anonymisée afin d\'améliorer nos contenus et votre expérience.',
+    'cookie_cat_fonctionnels'     => 'Fonctionnels — Carte interactive (OpenStreetMap)',
+    'cookie_cat_fonctionnels_desc'=> 'Permettent l\'affichage de la carte interactive de localisation. Des requêtes sont envoyées vers les serveurs OpenStreetMap.',
 
 ];

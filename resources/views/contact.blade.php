@@ -340,7 +340,7 @@
 
 
 @push('scripts')
-{{-- Leaflet JS --}}
+{{-- Leaflet JS — init différée selon consentement fonctionnel (nima:consent) --}}
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLkA="
         crossorigin="anonymous"></script>
@@ -349,19 +349,35 @@
     var lat  = {{ (float) $mapLat }};
     var lng  = {{ (float) $mapLng }};
     var zoom = {{ (int) $mapZoom }};
+    var el   = document.getElementById('carte-nima');
 
-    var map = L.map('carte-nima', { scrollWheelZoom: false }).setView([lat, lng], zoom);
+    function initMap() {
+        if (!el || el.dataset.mapReady) return;
+        el.dataset.mapReady = '1';
+        var map = L.map('carte-nima', { scrollWheelZoom: false }).setView([lat, lng], zoom);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>',
+            maxZoom: 19,
+        }).addTo(map);
+        var m = L.marker([lat, lng]).addTo(map);
+        m.bindPopup(
+            '<strong style="color:#1A3C5E;">NIMA Real Estate</strong><br>' +
+            '<span style="font-size:13px;color:#6b7280;">{{ addslashes(config('nima.contact.address')) }}</span>'
+        ).openPopup();
+    }
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>',
-        maxZoom: 19,
-    }).addTo(map);
-
-    var marqueur = L.marker([lat, lng]).addTo(map);
-    marqueur.bindPopup(
-        '<strong style="color:#1A3C5E;">NIMA Real Estate</strong><br>' +
-        '<span style="font-size:13px;color:#6b7280;">{{ addslashes(config('nima.contact.address')) }}</span>'
-    ).openPopup();
+    // Consentement déjà accordé (visite répétée, window.__nimaConsent défini par le bandeau)
+    if (window.__nimaConsent && window.__nimaConsent.functional) {
+        initMap();
+    } else {
+        // Attendre l'accord explicite sur la visite courante
+        window.addEventListener('nima:consent', function fn(e) {
+            if (e.detail && e.detail.functional) {
+                initMap();
+                window.removeEventListener('nima:consent', fn);
+            }
+        });
+    }
 })();
 </script>
 @endpush

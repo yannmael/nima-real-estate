@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EntiteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InvestirController;
+use App\Http\Controllers\LegalController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Middleware\SetLocale;
@@ -62,7 +63,7 @@ Route::prefix('{locale}')
         Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('article');
 
         // Étape 11 — Légal / RGPD
-        Route::get('/mentions-legales', fn () => abort(404))->name('mentions-legales');
-        Route::get('/politique-de-confidentialite', fn () => abort(404))->name('confidentialite');
+        Route::get('/mentions-legales', [LegalController::class, 'mentionsLegales'])->name('mentions-legales');
+        Route::get('/politique-de-confidentialite', [LegalController::class, 'confidentialite'])->name('confidentialite');
 
     });
