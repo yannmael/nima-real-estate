@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
             LeadSeeder::class,
             TemoignageSeeder::class,
             TauxChangeSeeder::class,
+            IndicateurMarcheSeeder::class,
+            FaqInvestisseurSeeder::class,
         ]);
     }
 }

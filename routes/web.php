@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EntiteController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InvestirController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Middleware\SetLocale;
@@ -52,12 +54,12 @@ Route::prefix('{locale}')
             ->where('token', '[A-Za-z0-9]{64}')
             ->name('newsletter.confirmer');
 
-        // Étape 9 — Investir
-        Route::get('/investir', fn () => abort(404))->name('investir');
+        // Étape 9 — Investir au Cameroun
+        Route::get('/investir', [InvestirController::class, 'index'])->name('investir');
 
         // Étape 10 — Blog
-        Route::get('/blog', fn () => abort(404))->name('blog');
-        Route::get('/blog/{slug}', fn () => abort(404))->name('article');
+        Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+        Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('article');
 
         // Étape 11 — Légal / RGPD
         Route::get('/mentions-legales', fn () => abort(404))->name('mentions-legales');

@@ -80,4 +80,45 @@ class Article extends Model
     {
         return $query->where('statut', 'publie')->whereNotNull('published_at');
     }
+
+    // Slug pour une locale donnée (pas forcément la locale active)
+    public function slugPourLocale(string $locale): string
+    {
+        return $this->{"slug_{$locale}"} ?? $this->slug_fr;
+    }
+
+    // Temps de lecture estimé en minutes (200 mots/min)
+    public function getTempsLectureAttribute(): int
+    {
+        $mots = str_word_count(strip_tags((string) $this->contenu));
+        return max(1, (int) ceil($mots / 200));
+    }
+
+    // Extrait les catégories uniques de tous les articles publiés
+    public static function toutesCategories(): array
+    {
+        return static::publie()
+            ->whereNotNull('categories')
+            ->pluck('categories')
+            ->flatten()
+            ->filter()
+            ->unique()
+            ->sort()
+            ->values()
+            ->toArray();
+    }
+
+    // Extrait les tags uniques de tous les articles publiés
+    public static function tousTags(): array
+    {
+        return static::publie()
+            ->whereNotNull('tags')
+            ->pluck('tags')
+            ->flatten()
+            ->filter()
+            ->unique()
+            ->sort()
+            ->values()
+            ->toArray();
+    }
 }
