@@ -20,7 +20,13 @@ return [
     'contact' => [
         'email'   => env('CONTACT_EMAIL', 'contact@nimarealestate.com'),
         'phone'   => env('CONTACT_PHONE', '+237 6XX XXX XXX'),
-        'address' => env('CONTACT_ADDRESS', 'Douala, Cameroun'),
+        'address' => env('CONTACT_ADDRESS', 'Yaoundé, Cameroun'),
+    ],
+
+    'map' => [
+        'lat'  => env('MAP_LAT',  3.8480),
+        'lng'  => env('MAP_LNG',  11.5021),
+        'zoom' => env('MAP_ZOOM', 14),
     ],
 
 ];

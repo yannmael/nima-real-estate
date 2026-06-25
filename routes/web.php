@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EntiteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PortfolioController;
@@ -46,7 +47,10 @@ Route::prefix('{locale}')
         Route::get('/processus',  [ServicesController::class, 'processus'])->name('processus');
 
         // Étape 8 — Contact
-        Route::get('/contact', fn () => abort(404))->name('contact');
+        Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+        Route::get('/newsletter/confirmer/{token}', [ContactController::class, 'confirmerNewsletter'])
+            ->where('token', '[A-Za-z0-9]{64}')
+            ->name('newsletter.confirmer');
 
         // Étape 9 — Investir
         Route::get('/investir', fn () => abort(404))->name('investir');
