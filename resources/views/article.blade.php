@@ -9,55 +9,13 @@
 @section('meta_titre',       $metaTitre)
 @section('meta_description', $metaDesc)
 @section('canonical',        url()->current())
+@section('og_type',          'article')
+@section('og_image', $article->image_couverture ? asset($article->image_couverture) : config('nima.seo.og_image'))
 
 @push('head')
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "{{ addslashes($article->titre) }}",
-    "datePublished": "{{ $article->published_at->toIso8601String() }}",
-    "dateModified": "{{ $article->updated_at->toIso8601String() }}",
-    "author": {
-        "@type": "Organization",
-        "name": "NIMA Real Estate",
-        "url": "{{ url('/'.$locale) }}"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "NIMA Real Estate"
-    },
-    "inLanguage": "{{ $locale }}",
-    "url": "{{ url()->current() }}"
-}
-</script>
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "{{ __('app.nav_home') }}",
-            "item": "{{ url('/'.$locale) }}"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "{{ __('blog.breadcrumb') }}",
-            "item": "{{ route('locale.blog', ['locale' => $locale]) }}"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "{{ addslashes($article->titre) }}",
-            "item": "{{ url()->current() }}"
-        }
-    ]
-}
-</script>
+<meta property="article:published_time" content="{{ $article->published_at->toIso8601String() }}">
+<meta property="article:modified_time"  content="{{ $article->updated_at->toIso8601String() }}">
+<x-seo.json-ld :data="$schemaOrg" />
 @endpush
 
 @section('content')
@@ -168,7 +126,9 @@
                 <div class="mb-10 rounded-2xl overflow-hidden">
                     <img src="{{ asset($article->image_couverture) }}"
                          alt="{{ $article->titre }}"
-                         class="w-full aspect-video object-cover">
+                         class="w-full aspect-video object-cover"
+                         fetchpriority="high"
+                         decoding="async">
                 </div>
                 @else
                 <div class="mb-10 rounded-2xl overflow-hidden">
@@ -186,7 +146,7 @@
                 <div class="prose prose-sm sm:prose-base max-w-none
                             prose-headings:text-primary prose-headings:font-bold
                             prose-p:text-gray-600 prose-p:leading-relaxed
-                            prose-a:text-gold prose-a:no-underline hover:prose-a:underline
+                            prose-a:text-gold-dark prose-a:no-underline hover:prose-a:underline
                             prose-strong:text-primary
                             prose-ul:text-gray-600 prose-ol:text-gray-600
                             prose-li:marker:text-gold

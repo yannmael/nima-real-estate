@@ -6,26 +6,16 @@
 @section('meta_description', __('services.meta_description'))
 
 @push('head')
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "{{ __('app.nav_home') }}",
-            "item": "{{ url('/'.$locale) }}"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "{{ __('services.titre') }}",
-            "item": "{{ url()->current() }}"
-        }
-    ]
-}
-</script>
+@php
+    $schemaServices = \App\Services\SeoService::graph(
+        \App\Services\SeoService::localBusiness(),
+        \App\Services\SeoService::breadcrumb([
+            ['name' => __('app.nav_home'),    'url' => route('locale.home',     ['locale' => $locale])],
+            ['name' => __('services.titre'),  'url' => route('locale.services', ['locale' => $locale])],
+        ]),
+    );
+@endphp
+<x-seo.json-ld :data="$schemaServices" />
 @endpush
 
 @section('content')

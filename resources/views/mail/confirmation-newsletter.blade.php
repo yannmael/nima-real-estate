@@ -70,7 +70,7 @@
           <td style="padding:20px 36px;border-top:1px solid #e5e7eb;text-align:center;">
             <p style="margin:0;font-size:11px;color:#9ca3af;">
               &copy; {{ date('Y') }} NIMA Real Estate — Yaoundé, Cameroun<br>
-              @if($fr)Vous recevez cet e-mail suite à une inscription sur nimarealestate.com.@else You received this email after signing up at nimarealestate.com.@endif
+              @if($fr)Vous recevez cet e-mail suite à une inscription sur nimarealestate.org.@else You received this email after signing up at nimarealestate.org.@endif
             </p>
           </td>
         </tr>

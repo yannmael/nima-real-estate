@@ -14,11 +14,11 @@ return [
 
     'seo' => [
         // Image Open Graph par défaut (à créer dans public/images/)
-        'og_image' => env('APP_URL', 'https://nimarealestate.com') . '/images/og-default.webp',
+        'og_image' => env('APP_URL', 'https://nimarealestate.org') . '/images/og-default.webp',
     ],
 
     'contact' => [
-        'email'   => env('CONTACT_EMAIL', 'contact@nimarealestate.com'),
+        'email'   => env('CONTACT_EMAIL', 'contact@nimarealestate.org'),
         'phone'   => env('CONTACT_PHONE', '+237 6XX XXX XXX'),
         'address' => env('CONTACT_ADDRESS', 'Yaoundé, Cameroun'),
     ],

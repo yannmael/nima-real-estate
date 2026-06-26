@@ -13,7 +13,7 @@ Instructions persistantes pour Claude Code. À respecter à chaque session.
 - Animations : **GSAP 3**
 - BDD : **MySQL 8**
 - Multilingue : **FR / EN**
-- Hébergement : Hostinger + Cloudflare CDN · Domaine : nimarealestate.com
+- Hébergement : Hostinger + Cloudflare CDN · Domaine : nimarealestate.org
 - Analytics : GA4 + Consent Mode v2
 
 Toute déviation de cette stack doit être proposée et validée avant d'écrire du code.

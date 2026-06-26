@@ -13,26 +13,16 @@
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin="anonymous">
 
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "{{ __('app.nav_home') }}",
-            "item": "{{ url('/'.$locale) }}"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "{{ __('contact.breadcrumb') }}",
-            "item": "{{ url()->current() }}"
-        }
-    ]
-}
-</script>
+@php
+    $schemaContact = \App\Services\SeoService::graph(
+        \App\Services\SeoService::localBusiness(),
+        \App\Services\SeoService::breadcrumb([
+            ['name' => __('app.nav_home'),       'url' => route('locale.home',    ['locale' => $locale])],
+            ['name' => __('contact.breadcrumb'), 'url' => route('locale.contact', ['locale' => $locale])],
+        ]),
+    );
+@endphp
+<x-seo.json-ld :data="$schemaContact" />
 @endpush
 
 @section('content')

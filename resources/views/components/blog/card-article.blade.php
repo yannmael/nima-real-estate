@@ -62,7 +62,7 @@
         {{-- Lien étiré sur toute la carte --}}
         <a href="{{ route('locale.article', ['locale' => $locale, 'slug' => $article->slugPourLocale($locale)]) }}"
            class="absolute inset-0 rounded-2xl focus:outline-none
-                  focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+                  focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
            aria-label="{{ __('blog.carte_lire') }} — {{ $article->titre }}">
         </a>
 

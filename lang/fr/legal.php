@@ -7,7 +7,7 @@ return [
        ===================================================================== */
 
     'ml_meta_titre'       => 'Mentions légales | NIMA Real Estate',
-    'ml_meta_description' => 'Informations légales relatives au site nimarealestate.com — éditeur, hébergeur, propriété intellectuelle, protection des données.',
+    'ml_meta_description' => 'Informations légales relatives au site nimarealestate.org — éditeur, hébergeur, propriété intellectuelle, protection des données.',
 
     'ml_badge'    => 'Informations légales',
     'ml_titre'    => 'Mentions légales',
@@ -17,19 +17,15 @@ return [
 
     /* Éditeur */
     'ml_editeur_titre'  => 'Éditeur du site',
-    'ml_editeur_intro'  => 'Le site nimarealestate.com est édité par :',
-    'ml_editeur_raison' => '[À COMPLÉTER — Raison sociale exacte de la société]',
-    'ml_editeur_forme'  => '[À COMPLÉTER — Forme juridique : SARL, SA, SAS…]',
-    'ml_editeur_capital'=> '[À COMPLÉTER — Capital social en FCFA]',
-    'ml_editeur_rccm'   => '[À COMPLÉTER — Numéro RCCM (Registre du Commerce et du Crédit Mobilier)]',
-    'ml_editeur_siege'  => '[À COMPLÉTER — Adresse du siège social complète]',
-    'ml_editeur_tel'    => 'Téléphone',
-    'ml_editeur_email'  => 'E-mail',
+    'ml_editeur_intro'  => 'Le site nimarealestate.org est édité par :',
+    'ml_editeur_raison' => 'NIMA SARL',
+    'ml_editeur_forme'  => 'SARL',
+    'ml_editeur_capital'=> '999 000 FCFA',
+    'ml_editeur_rccm'   => 'CM-NSI-01-2026-B12-00585',
+    'ml_editeur_siege'  => 'Ngousso, Yaoundé, Cameroun',
+    'ml_editeur_tel'    => '+237 6 980 019 620',
+    'ml_editeur_email'  => 'nima@nimarealestate.org',
 
-    /* Directeur de publication */
-    'ml_directeur_titre' => 'Directeur de la publication',
-    'ml_directeur_nom'   => '[À COMPLÉTER — Nom et prénom du directeur de publication]',
-    'ml_directeur_qualite' => '[À COMPLÉTER — Qualité : Gérant, Président, etc.]',
 
     /* Hébergement */
     'ml_hebergeur_titre'   => 'Hébergement',
@@ -53,7 +49,7 @@ return [
 
     /* Liens hypertextes */
     'ml_liens_titre' => 'Liens hypertextes',
-    'ml_liens_texte' => 'La mise en place d\'un lien hypertexte pointant vers le site nimarealestate.com nécessite une autorisation écrite préalable. NIMA Real Estate décline toute responsabilité quant au contenu des sites tiers vers lesquels des liens sont établis.',
+    'ml_liens_texte' => 'La mise en place d\'un lien hypertexte pointant vers le site nimarealestate.org nécessite une autorisation écrite préalable. NIMA Real Estate décline toute responsabilité quant au contenu des sites tiers vers lesquels des liens sont établis.',
 
     /* Responsabilité */
     'ml_resp_titre' => 'Limitation de responsabilité',
@@ -77,7 +73,7 @@ return [
 
     /* ANTIC */
     'ml_antic_titre' => 'Conformité ANTIC',
-    'ml_antic_texte' => 'Ce site est conforme aux recommandations de l\'Agence Nationale des Technologies de l\'Information et de la Communication (ANTIC) du Cameroun, conformément à la loi n° 2010/012 du 21 décembre 2010 relative à la cybersécurité et à la cybercriminalité au Cameroun.',
+    'ml_antic_texte' => 'Ce site est conforme aux recommandations de l\'Agence Nationale des Technologies de l\'Information et de la Communication (ANTIC) du Cameroun, conformément à la loi n° 2024/017 relative à la protection des données à caractère personnel.',
 
     /* =====================================================================
        POLITIQUE DE CONFIDENTIALITÉ
@@ -91,7 +87,7 @@ return [
     'pc_sous_titre' => 'Transparence sur la collecte et le traitement de vos données personnelles.',
     'pc_breadcrumb' => 'Politique de confidentialité',
     'pc_maj'        => 'Dernière mise à jour : 25 juin 2026',
-    'pc_intro'      => 'NIMA Real Estate accorde une importance capitale à la protection de vos données personnelles. Cette politique s\'applique à toutes les personnes dont les données sont traitées via le site nimarealestate.com.',
+    'pc_intro'      => 'NIMA Real Estate accorde une importance capitale à la protection de vos données personnelles. Cette politique s\'applique à toutes les personnes dont les données sont traitées via le site nimarealestate.org.',
 
     /* TOC */
     'pc_toc_titre' => 'Sommaire',
@@ -99,10 +95,10 @@ return [
     /* Section 1 — Responsable de traitement */
     'pc_s1_titre'   => 'Responsable du traitement',
     'pc_s1_texte'   => 'Le responsable du traitement des données collectées sur ce site est :',
-    'pc_s1_nom'     => '[À COMPLÉTER — Raison sociale]',
-    'pc_s1_adresse' => '[À COMPLÉTER — Adresse complète]',
-    'pc_s1_email'   => '[À COMPLÉTER — E-mail dédié RGPD, ex. privacy@nimarealestate.com]',
-    'pc_s1_dpo'     => 'Délégué à la protection des données (DPO) : [À COMPLÉTER — Nommer un DPO ou indiquer « non désigné »]',
+    'pc_s1_nom'     => 'NIMA SARL',
+    'pc_s1_adresse' => 'Ngousso, Yaoundé, Cameroun',
+    'pc_s1_email'   => 'nima@nimarealestate.org',
+    'pc_s1_dpo'     => 'Délégué à la protection des données (DPO) : Yann KAPTUE',
 
     /* Section 2 — Données collectées */
     'pc_s2_titre'  => 'Données collectées et finalités',
@@ -128,7 +124,7 @@ return [
 
     /* Section 4 — Droits */
     'pc_s4_titre'  => 'Vos droits',
-    'pc_s4_intro'  => 'Conformément au RGPD et à la loi camerounaise n° 2010/012, vous disposez des droits suivants :',
+    'pc_s4_intro'  => 'Conformément au RGPD et à la loi camerounaise n° 2024/017 relative à la protection des données à caractère personnel, vous disposez des droits suivants :',
     'pc_s4_droits' => [
         ['Droit d\'accès', 'Obtenir la confirmation que vos données sont traitées et en recevoir une copie.'],
         ['Droit de rectification', 'Faire corriger des données inexactes ou incomplètes.'],
@@ -159,7 +155,7 @@ return [
 
     /* Section 7 — Cadre légal camerounais */
     'pc_s7_titre' => 'Cadre légal camerounais',
-    'pc_s7_texte' => 'En complément du RGPD applicable aux données des ressortissants de l\'Union Européenne, NIMA Real Estate respecte la loi camerounaise n° 2010/012 du 21 décembre 2010 relative à la cybersécurité et à la cybercriminalité, ainsi que les recommandations de l\'ANTIC en matière de protection des données personnelles des utilisateurs camerounais.',
+    'pc_s7_texte' => 'En complément du RGPD applicable aux données des ressortissants de l\'Union Européenne, NIMA Real Estate respecte la loi camerounaise n° 2024/017 relative à la protection des données à caractère personnel, ainsi que les recommandations de l\'ANTIC en matière de protection des données personnelles des utilisateurs camerounais.',
 
     /* Section 8 — Modifications */
     'pc_s8_titre' => 'Modifications de la politique',

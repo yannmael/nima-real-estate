@@ -119,7 +119,7 @@
         <tr>
           <td style="padding:28px 32px;border-top:1px solid #e5e7eb;margin-top:28px;">
             <p style="margin:0;font-size:12px;color:#9ca3af;text-align:center;">
-              Cet e-mail a été généré automatiquement par le site <strong>nimarealestate.com</strong>.<br>
+              Cet e-mail a été généré automatiquement par le site <strong>nimarealestate.org</strong>.<br>
               Ne pas répondre directement à cet e-mail — répondez au prospect via son adresse.
             </p>
           </td>

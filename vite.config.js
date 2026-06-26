@@ -10,4 +10,14 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+    build: {
+        rollupOptions: {
+            output: {
+                /* Isole GSAP dans son propre chunk — chargé en parallèle du bundle principal */
+                manualChunks: {
+                    gsap: ['gsap'],
+                },
+            },
+        },
+    },
 });

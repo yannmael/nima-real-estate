@@ -8,26 +8,20 @@
 @section('meta_robots',      'noindex, follow')
 
 @push('head')
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "{{ __('app.nav_home') }}",
-            "item": "{{ url('/'.$locale) }}"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "{{ __('legal.ml_breadcrumb') }}",
-            "item": "{{ url()->current() }}"
-        }
-    ]
-}
-</script>
+@php
+    $schemaMl = \App\Services\SeoService::graph(
+        [
+            '@type' => 'WebPage',
+            'name'  => __('legal.ml_meta_titre'),
+            'url'   => url()->current(),
+        ],
+        \App\Services\SeoService::breadcrumb([
+            ['name' => __('app.nav_home'),        'url' => route('locale.home',           ['locale' => $locale])],
+            ['name' => __('legal.ml_breadcrumb'), 'url' => route('locale.mentions-legales', ['locale' => $locale])],
+        ]),
+    );
+@endphp
+<x-seo.json-ld :data="$schemaMl" />
 @endpush
 
 @section('content')
@@ -76,15 +70,6 @@
 
         <div class="max-w-3xl mx-auto">
 
-            {{-- Avertissement placeholders client --}}
-            <div class="mb-10 p-4 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-800 font-mono leading-relaxed"
-                 role="note"
-                 aria-label="{{ $locale === 'fr' ? 'Note de développement' : 'Development note' }}">
-                <strong>{{ $locale === 'fr' ? 'Note client' : 'Client note' }} :</strong>
-                {{ $locale === 'fr'
-                    ? 'Les mentions entre [crochets] doivent être complétées par les informations réelles de la société avant mise en ligne. Ne pas publier sans les avoir renseignées.'
-                    : 'Items in [brackets] must be completed with actual company details before going live. Do not publish without filling them in.' }}
-            </div>
 
             {{-- ──────────────────────────────────────
                  1. ÉDITEUR
@@ -117,7 +102,7 @@
                         <dd class="text-gray-600">{{ config('nima.legal.siege') }}</dd>
                     </div>
                     <div class="grid grid-cols-[140px_1fr] gap-2">
-                        <dt class="font-semibold text-gray-700">{{ __('legal.ml_editeur_tel') }}</dt>
+                        <dt class="font-semibold text-gray-700">{{ $locale === 'fr' ? 'Téléphone' : 'Phone' }}</dt>
                         <dd class="text-gray-600">
                             <a href="tel:{{ config('nima.contact.phone') }}"
                                class="text-primary hover:text-gold transition-colors">
@@ -126,7 +111,7 @@
                         </dd>
                     </div>
                     <div class="grid grid-cols-[140px_1fr] gap-2">
-                        <dt class="font-semibold text-gray-700">{{ __('legal.ml_editeur_email') }}</dt>
+                        <dt class="font-semibold text-gray-700">{{ $locale === 'fr' ? 'E-mail' : 'Email' }}</dt>
                         <dd class="text-gray-600">
                             <a href="mailto:{{ config('nima.contact.email') }}"
                                class="text-primary hover:text-gold transition-colors">

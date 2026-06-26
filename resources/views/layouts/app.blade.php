@@ -43,6 +43,13 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
+    {{-- Resource hints — résolution DNS anticipée pour les domaines tiers --}}
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="dns-prefetch" href="//unpkg.com">
+    <link rel="dns-prefetch" href="//tile.openstreetmap.org">
+
     {{-- Google Analytics 4 + Consent Mode v2 --}}
     @if(config('nima.ga4.measurement_id'))
         @include('partials.ga4')

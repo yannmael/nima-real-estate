@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Entreprise;
+use App\Services\SeoService;
 
 class EntiteController extends Controller
 {
@@ -18,6 +19,14 @@ class EntiteController extends Controller
             ->limit(6)
             ->get();
 
-        return view('entite', compact('entreprise', 'projets'));
+        $schemaOrg = SeoService::graph(
+            SeoService::realEstateAgent($entreprise, $locale),
+            SeoService::breadcrumb([
+                ['name' => __('app.nav_home'),   'url' => route('locale.home',  ['locale' => $locale])],
+                ['name' => $entreprise->nom,      'url' => route('locale.entite', ['locale' => $locale, 'slug' => $entreprise->slug])],
+            ]),
+        );
+
+        return view('entite', compact('entreprise', 'projets', 'schemaOrg'));
     }
 }

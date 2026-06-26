@@ -2,7 +2,7 @@
 
 {{--
     Bandeau de consentement aux cookies — étape 11
-    Conforme RGPD + loi camerounaise n°2010/012 + recommandations ANTIC.
+    Conforme RGPD + loi camerounaise n°2024/017 + recommandations ANTIC.
     Deux niveaux : choix simple (accepter/refuser/paramétrer) et panneau granulaire.
     Consent Mode v2 : gtag('consent','update') émis à chaque choix.
     Événement personnalisé 'nima:consent' diffusé pour les scripts tiers (Leaflet).
@@ -197,7 +197,7 @@
 <script>
 /**
  * Composant Alpine.js du bandeau de consentement.
- * Défini ici (avant @livewireScripts) pour être disponible lors de l'initialisation d'Alpine.
+ * Défini ici (avant @@livewireScripts) pour être disponible lors de l'initialisation d'Alpine.
  *
  * État persisté : localStorage 'nima_consent' = { analytics, functional, ts }
  * État global   : window.__nimaConsent = { analytics, functional }

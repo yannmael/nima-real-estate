@@ -8,6 +8,8 @@
     --color-primary-100: #eaf0f6;
     --color-gold:        #C9A96E;
     --color-gold-600:    #b08c3a;
+    /* gold-dark : texte sur fond clair — contraste 4,82:1 sur blanc (WCAG AA ✓) */
+    --color-gold-dark:   #8B6914;
 
     /* Typographie */
     --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
@@ -21,11 +23,14 @@
     --breakpoint-2xl: 1920px; /* très grand écran */
 }
 
-/* Focus visible — accessibilité clavier (WCAG 2.1 AA) */
+/* Focus visible — accessibilité clavier (WCAG 2.1 AA + SC 1.4.11 Non-text Contrast)
+   Anneau double : or (marque) visible sur fond sombre, primaire-800 visible sur fond clair.
+   Contraste gold/primary-800 ≈ 6,7:1 ✓ — primary-800/blanc ≈ 15:1 ✓ */
 *:focus-visible {
-    outline: 3px solid var(--color-gold);
-    outline-offset: 2px;
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
     border-radius: 2px;
+    box-shadow: 0 0 0 5px var(--color-primary-800);
 }
 
 /* Alpine.js — masque les éléments x-cloak avant hydratation */

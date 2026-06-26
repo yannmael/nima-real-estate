@@ -8,8 +8,16 @@ use App\Http\Controllers\InvestirController;
 use App\Http\Controllers\LegalController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\SitemapController;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| SEO — Sitemap & Robots
+|--------------------------------------------------------------------------
+*/
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
 /*
 |--------------------------------------------------------------------------

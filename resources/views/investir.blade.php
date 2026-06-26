@@ -7,26 +7,16 @@
 @section('canonical',        url()->current())
 
 @push('head')
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "{{ __('app.nav_home') }}",
-            "item": "{{ url('/'.$locale) }}"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "{{ __('investir.breadcrumb') }}",
-            "item": "{{ url()->current() }}"
-        }
-    ]
-}
-</script>
+@php
+    $schemaInvestir = \App\Services\SeoService::graph(
+        \App\Services\SeoService::localBusiness(),
+        \App\Services\SeoService::breadcrumb([
+            ['name' => __('app.nav_home'),        'url' => route('locale.home',    ['locale' => $locale])],
+            ['name' => __('investir.breadcrumb'), 'url' => route('locale.investir', ['locale' => $locale])],
+        ]),
+    );
+@endphp
+<x-seo.json-ld :data="$schemaInvestir" />
 @endpush
 
 @section('content')
@@ -126,7 +116,7 @@
                     {{ $ind->valeur }}
                 </p>
                 @if($ind->unite)
-                <p class="text-xs text-gold font-semibold mb-2">
+                <p class="text-xs text-gold-dark font-semibold mb-2">
                     {{ $ind->unite }}
                 </p>
                 @endif

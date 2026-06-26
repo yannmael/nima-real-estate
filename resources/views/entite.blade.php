@@ -10,43 +10,7 @@
 @section('og_image',         config('nima.seo.og_image'))
 
 @push('head')
-{{-- Schema.org BreadcrumbList + LocalBusiness --}}
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@graph": [
-        {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-                {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "{{ __('app.nav_home') }}",
-                    "item": "{{ url('/'.$locale) }}"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "{{ __('entite.breadcrumb_entities') }}",
-                    "item": "{{ url('/'.$locale.'/entites') }}"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 3,
-                    "name": "{{ $entreprise->nom }}",
-                    "item": "{{ url()->current() }}"
-                }
-            ]
-        },
-        {
-            "@type": "LocalBusiness",
-            "name": "{{ $entreprise->nom }}",
-            "url": "{{ url()->current() }}",
-            "description": "{{ $desc }}"
-        }
-    ]
-}
-</script>
+<x-seo.json-ld :data="$schemaOrg" />
 @endpush
 
 @section('content')

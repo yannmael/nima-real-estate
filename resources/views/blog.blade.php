@@ -7,26 +7,21 @@
 @section('canonical',        url()->current())
 
 @push('head')
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "{{ __('app.nav_home') }}",
-            "item": "{{ url('/'.$locale) }}"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "{{ __('blog.breadcrumb') }}",
-            "item": "{{ url()->current() }}"
-        }
-    ]
-}
-</script>
+@php
+    $schemaBlog = \App\Services\SeoService::graph(
+        [
+            '@type'          => 'Blog',
+            'name'           => __('blog.meta_titre'),
+            'url'            => route('locale.blog', ['locale' => $locale]),
+            'publisher'      => ['@id' => config('app.url') . '/#organization'],
+        ],
+        \App\Services\SeoService::breadcrumb([
+            ['name' => __('app.nav_home'),    'url' => route('locale.home', ['locale' => $locale])],
+            ['name' => __('blog.breadcrumb'), 'url' => route('locale.blog', ['locale' => $locale])],
+        ]),
+    );
+@endphp
+<x-seo.json-ld :data="$schemaBlog" />
 @endpush
 
 @section('content')

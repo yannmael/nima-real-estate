@@ -1,7 +1,28 @@
 @extends('layouts.app')
 
+@php $locale = app()->getLocale(); @endphp
+
 @section('meta_titre', __('portfolio.meta_titre'))
 @section('meta_description', __('portfolio.meta_description'))
+
+@push('head')
+@php
+    $schemaPortfolio = \App\Services\SeoService::graph(
+        [
+            '@type'       => 'CollectionPage',
+            'name'        => __('portfolio.meta_titre'),
+            'description' => __('portfolio.meta_description'),
+            'url'         => route('locale.portfolio', ['locale' => $locale]),
+            'publisher'   => ['@id' => config('app.url') . '/#organization'],
+        ],
+        \App\Services\SeoService::breadcrumb([
+            ['name' => __('app.nav_home'),      'url' => route('locale.home',      ['locale' => $locale])],
+            ['name' => __('app.nav_portfolio'), 'url' => route('locale.portfolio', ['locale' => $locale])],
+        ]),
+    );
+@endphp
+<x-seo.json-ld :data="$schemaPortfolio" />
+@endpush
 
 @section('content')
 

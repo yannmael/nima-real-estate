@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Services\SeoService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -31,6 +32,15 @@ class BlogController extends Controller
             ->limit(3)
             ->get();
 
-        return view('article', compact('article', 'articlesLies'));
+        $schemaOrg = SeoService::graph(
+            SeoService::blogPosting($article, $locale),
+            SeoService::breadcrumb([
+                ['name' => __('app.nav_home'), 'url' => route('locale.home', ['locale' => $locale])],
+                ['name' => __('blog.breadcrumb'), 'url' => route('locale.blog', ['locale' => $locale])],
+                ['name' => $article->titre,       'url' => url()->current()],
+            ]),
+        );
+
+        return view('article', compact('article', 'articlesLies', 'schemaOrg'));
     }
 }

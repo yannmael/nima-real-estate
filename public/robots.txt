@@ -1,2 +1,7 @@
 User-agent: *
-Disallow:
+Disallow: /fr/newsletter/confirmer/
+Disallow: /en/newsletter/confirmer/
+Disallow: /livewire/
+Disallow: /admin/
+
+Sitemap: https://nimarealestate.com/sitemap.xml

@@ -20,35 +20,11 @@
 
 @section('meta_titre', $projet->titre . ' — ' . __('portfolio.meta_titre_suffix'))
 @section('meta_description', $descMeta)
-@section('og_type', 'article')
+@section('og_type', 'website')
+@section('og_image', $projet->image_principale ? asset($projet->image_principale) : config('nima.seo.og_image'))
 
 @push('head')
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "{{ __('app.nav_home') }}",
-            "item": "{{ url('/'.$locale) }}"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "{{ __('app.nav_portfolio') }}",
-            "item": "{{ route('locale.portfolio', ['locale' => $locale]) }}"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": {{ json_encode($projet->titre) }},
-            "item": "{{ url()->current() }}"
-        }
-    ]
-}
-</script>
+<x-seo.json-ld :data="$schemaOrg" />
 @endpush
 
 @section('content')

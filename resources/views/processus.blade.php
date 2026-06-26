@@ -60,32 +60,17 @@
 @section('meta_description', __('processus.meta_description'))
 
 @push('head')
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "{{ __('app.nav_home') }}",
-            "item": "{{ url('/'.$locale) }}"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "{{ __('app.nav_services') }}",
-            "item": "{{ route('locale.services', ['locale' => $locale]) }}"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "{{ __('processus.titre') }}",
-            "item": "{{ url()->current() }}"
-        }
-    ]
-}
-</script>
+@php
+    $schemaProcessus = \App\Services\SeoService::graph(
+        \App\Services\SeoService::localBusiness(),
+        \App\Services\SeoService::breadcrumb([
+            ['name' => __('app.nav_home'),     'url' => route('locale.home',      ['locale' => $locale])],
+            ['name' => __('app.nav_services'), 'url' => route('locale.services',  ['locale' => $locale])],
+            ['name' => __('processus.titre'),  'url' => route('locale.processus', ['locale' => $locale])],
+        ]),
+    );
+@endphp
+<x-seo.json-ld :data="$schemaProcessus" />
 @endpush
 
 @section('content')
@@ -224,7 +209,7 @@
                     <p class="text-sm text-gray-500 leading-relaxed font-mono mb-3">
                         {{ $etape['desc'] }}
                     </p>
-                    <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold">
+                    <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold-dark">
                         <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24"
                              stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -280,7 +265,7 @@
                         {{ $etape['desc'] }}
                     </p>
 
-                    <div class="flex items-center gap-1.5 text-[10px] font-semibold text-gold">
+                    <div class="flex items-center gap-1.5 text-[10px] font-semibold text-gold-dark">
                         <svg class="w-3 h-3 flex-shrink-0" fill="none" viewBox="0 0 24 24"
                              stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -342,7 +327,7 @@
                         aria-controls="faq-answer-{{ $i }}"
                         class="flex w-full items-start justify-between gap-4
                                py-5 text-left focus:outline-none
-                               focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded"
+                               focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded"
                     >
                         <span class="font-semibold text-primary text-sm sm:text-base leading-snug font-mono">
                             {{ $item['q'] }}

@@ -7,7 +7,7 @@ return [
        ===================================================================== */
 
     'ml_meta_titre'       => 'Legal notice | NIMA Real Estate',
-    'ml_meta_description' => 'Legal information relating to nimarealestate.com — publisher, hosting, intellectual property, data protection.',
+    'ml_meta_description' => 'Legal information relating to nimarealestate.org — publisher, hosting, intellectual property, data protection.',
 
     'ml_badge'     => 'Legal information',
     'ml_titre'     => 'Legal notice',
@@ -17,14 +17,14 @@ return [
 
     /* Publisher */
     'ml_editeur_titre'  => 'Website publisher',
-    'ml_editeur_intro'  => 'The website nimarealestate.com is published by:',
-    'ml_editeur_raison' => '[TO COMPLETE — Exact company name]',
-    'ml_editeur_forme'  => '[TO COMPLETE — Legal form: SARL, SA, SAS…]',
-    'ml_editeur_capital'=> '[TO COMPLETE — Share capital in FCFA]',
-    'ml_editeur_rccm'   => '[TO COMPLETE — RCCM number (Trade and Personal Property Credit Register)]',
-    'ml_editeur_siege'  => '[TO COMPLETE — Full registered office address]',
-    'ml_editeur_tel'    => 'Phone',
-    'ml_editeur_email'  => 'Email',
+    'ml_editeur_intro'  => 'The website nimarealestate.org is published by:',
+    'ml_editeur_raison' => 'NIMA SARL',
+    'ml_editeur_forme'  => 'SARL',
+    'ml_editeur_capital'=> '999 000 FCFA',
+    'ml_editeur_rccm'   => 'CM-NSI-01-2026-B12-00585',
+    'ml_editeur_siege'  => 'Ngousso, Yaoundé, Cameroon',
+    'ml_editeur_tel'    => '+237 6 980 019 620',
+    'ml_editeur_email'  => 'nima@nimarealestate.org',
 
     /* Publication director */
     'ml_directeur_titre'   => 'Publication director',
@@ -53,7 +53,7 @@ return [
 
     /* Hyperlinks */
     'ml_liens_titre' => 'Hyperlinks',
-    'ml_liens_texte' => 'Setting up a hyperlink pointing to nimarealestate.com requires prior written authorisation. NIMA Real Estate accepts no responsibility for the content of third-party sites to which links are established.',
+    'ml_liens_texte' => 'Setting up a hyperlink pointing to nimarealestate.org requires prior written authorisation. NIMA Real Estate accepts no responsibility for the content of third-party sites to which links are established.',
 
     /* Liability */
     'ml_resp_titre' => 'Limitation of liability',
@@ -77,7 +77,7 @@ return [
 
     /* ANTIC */
     'ml_antic_titre' => 'ANTIC compliance',
-    'ml_antic_texte' => 'This site complies with the recommendations of the National Agency for Information and Communication Technologies (ANTIC) of Cameroon, in accordance with Law No. 2010/012 of 21 December 2010 on cybersecurity and cybercrime in Cameroon.',
+    'ml_antic_texte' => 'This site complies with the recommendations of the National Agency for Information and Communication Technologies (ANTIC) of Cameroon, in accordance with Law No. 2024/017 on the protection of personal data.',
 
     /* =====================================================================
        PRIVACY POLICY
@@ -91,7 +91,7 @@ return [
     'pc_sous_titre' => 'Transparency on the collection and processing of your personal data.',
     'pc_breadcrumb' => 'Privacy policy',
     'pc_maj'        => 'Last updated: 25 June 2026',
-    'pc_intro'      => 'NIMA Real Estate attaches paramount importance to the protection of your personal data. This policy applies to all persons whose data is processed through the website nimarealestate.com.',
+    'pc_intro'      => 'NIMA Real Estate attaches paramount importance to the protection of your personal data. This policy applies to all persons whose data is processed through the website nimarealestate.org.',
 
     /* TOC */
     'pc_toc_titre' => 'Table of contents',
@@ -99,10 +99,10 @@ return [
     /* Section 1 — Data controller */
     'pc_s1_titre'   => 'Data controller',
     'pc_s1_texte'   => 'The data controller for data collected on this site is:',
-    'pc_s1_nom'     => '[TO COMPLETE — Company name]',
-    'pc_s1_adresse' => '[TO COMPLETE — Full address]',
-    'pc_s1_email'   => '[TO COMPLETE — Dedicated GDPR email, e.g. privacy@nimarealestate.com]',
-    'pc_s1_dpo'     => 'Data Protection Officer (DPO): [TO COMPLETE — Appoint a DPO or state "not designated"]',
+    'pc_s1_nom'     => 'NIMA SARL',
+    'pc_s1_adresse' => 'Ngousso, Yaoundé, Cameroon',
+    'pc_s1_email'   => 'nima@nimarealestate.org',
+    'pc_s1_dpo'     => 'Data Protection Officer (DPO): Yann KAPTUE',
 
     /* Section 2 — Data collected */
     'pc_s2_titre'  => 'Data collected and purposes',
@@ -128,7 +128,7 @@ return [
 
     /* Section 4 — Rights */
     'pc_s4_titre'  => 'Your rights',
-    'pc_s4_intro'  => 'Under the GDPR and Cameroonian Law No. 2010/012, you have the following rights:',
+    'pc_s4_intro'  => 'Under the GDPR and Cameroonian Law No. 2024/017 on the protection of personal data, you have the following rights:',
     'pc_s4_droits' => [
         ['Right of access', 'Obtain confirmation that your data is being processed and receive a copy.'],
         ['Right to rectification', 'Have inaccurate or incomplete data corrected.'],
@@ -159,7 +159,7 @@ return [
 
     /* Section 7 — Cameroonian law */
     'pc_s7_titre' => 'Cameroonian legal framework',
-    'pc_s7_texte' => 'In addition to the GDPR applicable to EU residents\' data, NIMA Real Estate complies with Cameroonian Law No. 2010/012 of 21 December 2010 on cybersecurity and cybercrime, as well as ANTIC\'s recommendations on the protection of Cameroonian users\' personal data.',
+    'pc_s7_texte' => 'In addition to the GDPR applicable to EU residents\' data, NIMA Real Estate complies with Cameroonian Law No. 2024/017 on the protection of personal data, as well as ANTIC\'s recommendations on the protection of Cameroonian users\' personal data.',
 
     /* Section 8 — Changes */
     'pc_s8_titre' => 'Changes to this policy',

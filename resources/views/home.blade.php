@@ -4,20 +4,13 @@
 @section('meta_description', __('home.meta_description'))
 
 @push('head')
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    "name": "{{ __('app.site_name') }}",
-    "url": "{{ url('/') }}",
-    "description": "{{ __('home.meta_description') }}",
-    "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Yaoundé",
-        "addressCountry": "CM"
-    }
-}
-</script>
+@php
+    $schemaHome = \App\Services\SeoService::graph(
+        \App\Services\SeoService::website(),
+        \App\Services\SeoService::localBusiness(),
+    );
+@endphp
+<x-seo.json-ld :data="$schemaHome" />
 @endpush
 
 @section('content')
