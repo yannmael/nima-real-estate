@@ -154,7 +154,7 @@
                             prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4
                             prose-h3:text-base prose-h3:mt-6 prose-h3:mb-3">
                     @if($article->contenu)
-                        {!! $article->contenu !!}
+                        {!! $article->safe_contenu !!}
                     @else
                         <p class="text-amber-700 italic font-mono text-sm">
                             {{ __('blog.article_contenu_vide') }}

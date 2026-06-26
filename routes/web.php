@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\AuthController as AdminAuth;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
+use App\Http\Controllers\Admin\TwoFactorController as Admin2FA;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EntiteController;
@@ -9,8 +12,36 @@ use App\Http\Controllers\LegalController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Middleware\EnsureAdmin2FA;
+use App\Http\Middleware\EnsureIsAdmin;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Administration — login + 2FA + tableau de bord
+|--------------------------------------------------------------------------
+*/
+Route::prefix('admin')->name('admin.')->group(function () {
+
+    // Connexion (sans authentification)
+    Route::get('/login',  [AdminAuth::class, 'showLogin'])->name('login');
+    Route::post('/login', [AdminAuth::class, 'login']);
+    Route::post('/logout', [AdminAuth::class, 'logout'])->name('logout');
+
+    // 2FA — accessible après authentification simple
+    Route::middleware(EnsureIsAdmin::class)->group(function () {
+        Route::get('/2fa/setup',    [Admin2FA::class, 'showSetup'])->name('2fa.setup');
+        Route::post('/2fa/setup',   [Admin2FA::class, 'confirmSetup'])->name('2fa.confirm');
+        Route::get('/2fa/challenge',  [Admin2FA::class, 'showChallenge'])->name('2fa.challenge');
+        Route::post('/2fa/challenge', [Admin2FA::class, 'challenge'])->name('2fa.challenge.verify');
+    });
+
+    // Tableau de bord — nécessite auth + 2FA validé
+    Route::middleware([EnsureIsAdmin::class, EnsureAdmin2FA::class])->group(function () {
+        Route::get('/', [AdminDashboard::class, 'index'])->name('dashboard');
+    });
+});
 
 /*
 |--------------------------------------------------------------------------

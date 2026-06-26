@@ -9,10 +9,11 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // Utilisateur admin de test
+        // Utilisateur admin de test (2FA non configuré — à activer via /admin/login)
         User::factory()->create([
-            'name'  => 'Admin NIMA (test)',
-            'email' => 'admin@nima-demo.local',
+            'name'     => 'Admin NIMA (test)',
+            'email'    => 'admin@nima-demo.local',
+            'is_admin' => true,
         ]);
 
         // Ordre imposé par les FK : Entreprise → Projet → Temoignage

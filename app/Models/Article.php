@@ -52,12 +52,36 @@ class Article extends Model
         return $this->{"slug_{$locale}"} ?? $this->slug_fr;
     }
 
-    // Contenu dans la locale active
+    // Contenu brut dans la locale active
     public function getContenuAttribute(): ?string
     {
         $locale = app()->getLocale();
 
         return $this->{"contenu_{$locale}"} ?? $this->contenu_fr;
+    }
+
+    // Contenu sanitisé — supprime les balises dangereuses et les gestionnaires JS inline
+    // Pour un durcissement complet, remplacer par mews/purifier en production
+    public function getSafeContenuAttribute(): ?string
+    {
+        $html = $this->contenu;
+        if (empty($html)) {
+            return null;
+        }
+
+        $allowed = '<p><br><h2><h3><h4><ul><ol><li><strong><em><a><img>'
+                 . '<blockquote><figure><figcaption><table><thead><tbody>'
+                 . '<tr><td><th><code><pre><hr><span>';
+
+        $clean = strip_tags($html, $allowed);
+
+        // Supprime les gestionnaires d'événements inline (onclick, onload, onerror…)
+        $clean = preg_replace('/\s+on\w+\s*=\s*(?:"[^"]*"|\'[^\']*\'|[^\s>]+)/i', '', $clean);
+
+        // Bloque les URLs javascript: dans href/src
+        $clean = preg_replace('/\b(href|src)\s*=\s*["\']javascript:[^"\']*["\']/i', '$1="#"', $clean);
+
+        return $clean;
     }
 
     // Meta-titre dans la locale active
